@@ -3,6 +3,7 @@ class HiddenGemsController < ApplicationController
   before_action :hidden_gem, only: [:show, :update]
 
   def create
+    byebug
     @hidden_gem.new(gem_params)
   end
 

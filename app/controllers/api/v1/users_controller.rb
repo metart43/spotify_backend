@@ -19,7 +19,9 @@ class Api::V1::UsersController < ApplicationController
 
     user_params = JSON.parse(user_response.body)
 
-    @user = User.find_or_create_by(username: user_params['display_name'])
+    byebug
+
+    @user = User.find_or_create_by(id: user_params['id'])
 
     if @user.save
       @user.update(access_token:auth_params["access_token"], refreshed_token: auth_params["refresh_token"])
