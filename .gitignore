@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+application.yml
 
 # Ignore uploaded files in development
 /storage/*
