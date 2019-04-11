@@ -1,14 +1,15 @@
 class HiddenGemsController < ApplicationController
 
-  # before_action :find_gem, only: [:show, :update]
+  before_action :find_gem, only: [:show]
 
   def create
-    render json: HiddenGem.create(gem_params)
+    @hidden_gem = HiddenGem.create(gem_params)
+    render json: @hidden_gem
   end
 
-  # def show
-  #   render: @hidden_gem
-  # end
+  def show
+    render json: @hidden_gem
+  end
 
 
   private
