@@ -1,6 +1,6 @@
 class HiddenGemsController < ApplicationController
 
-  before_action :find_gem, only: [:show]
+  before_action :find_gem, only: [:show, :destroy]
 
   def create
     @hidden_gem = HiddenGem.create(gem_params)
@@ -11,6 +11,10 @@ class HiddenGemsController < ApplicationController
     render json: @hidden_gem
   end
 
+  def destroy
+    @hidden_gem.destroy
+    render json: @hidden_gem
+  end
 
   private
 
@@ -19,7 +23,7 @@ class HiddenGemsController < ApplicationController
   end
 
   def find_gem
-    @hidden_gem = HiddenGem.find(params(:id))
+    @hidden_gem = HiddenGem.find(params[:id])
   end
 
 end

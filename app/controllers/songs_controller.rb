@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
   def create
-    @song = Song.new(song_params)
+    @song = Song.new(user_id: params['user']['user_id'], hidden_gem_id: params['gem']['hidden_gem_id'], artist: params['song']['artist'], name: params['song']['name'])
     if @song.save
       render json: @song
     else
@@ -9,13 +9,9 @@ class SongsController < ApplicationController
     end
   end
 
-  private
-
-  def song_params
-    params.permit(:name)
 end
 
-# Song(id: integer, 
+# Song(id: integer,
 # name: string,
 # created_at: datetime, updated_at: datetime,
 # user_id: integer,

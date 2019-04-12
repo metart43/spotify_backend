@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get '/login', to: 'login#create'
       get '/auth/spotify/callback', to: 'users#create'
+      get '/users/:id', to: 'users#show'
     end
   end
 end

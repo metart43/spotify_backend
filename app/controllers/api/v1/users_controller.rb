@@ -24,4 +24,9 @@ class Api::V1::UsersController < ApplicationController
     redirect_to "http://localhost:3001/#" + auth_params.to_query
   end
 
+  def show
+    @user = User.find(params[:id])
+    render json:@user
+  end
+
 end
