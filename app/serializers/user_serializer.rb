@@ -4,10 +4,13 @@ class UserSerializer < ActiveModel::Serializer
 
   def songs
   self.object.songs.map do |song|
-      {name: song.name,
-       artist: song.artist,
-       user_id: song.user_id,
-       hidden_gem_id: song.hidden_gem_id
+      {
+      id: song.id,
+      name: song.name,
+      artist: song.artist,
+      user_id: song.user_id,
+      hidden_gem_id: song.hidden_gem_id,
+      uri: song.song_uri
      }
    end
  end
